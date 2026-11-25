@@ -1,0 +1,68 @@
+{
+  "students": [
+    {
+      "name": "Bellamkonda Prabha",
+      "rollnumber": "101",
+      "course": "Computer Science",
+      "age": 22,
+      "marks": 85,
+      "ispresent": true,
+      "id": "1"
+    },
+    {
+      "name": "Rahul",
+      "age": 21,
+      "rollnumber": "102",
+      "course": "Information Technology",
+      "marks": 90,
+      "ispresent": false,
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Sneha",
+      "rollnumber": "103",
+      "course": "Computer Science",
+      "age": 20,
+      "marks": 78,
+      "ispresent": false
+    },
+    {
+      "id": "5",
+      "name": "Priya",
+      "rollnumber": "105",
+      "course": "Information Technology",
+      "age": 21,
+      "marks": 92,
+      "ispresent": true
+    },
+    {
+      "id": "6",
+      "name": "Kiran",
+      "rollnumber": "106",
+      "course": "Computer Science",
+      "age": 20,
+      "marks": 75,
+      "ispresent": false
+    },
+    {
+      "name": "bonnie",
+      "age": 23,
+      "rollnumber": "131",
+      "course": "Information Technology",
+      "marks": 98,
+      "ispresent": false,
+      "id": "KCCtaU5Ecyg"
+    },
+    {
+      "name": "Meghana",
+      "age": 23,
+      "rollnumber": "133",
+      "course": "Computer Science",
+      "marks": 100,
+      "ispresent": true,
+      "id": "6wfYgIfpMf4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
