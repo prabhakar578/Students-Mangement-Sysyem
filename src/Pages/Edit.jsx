@@ -18,7 +18,7 @@ const Edit = () => {
   let [isPresent, setIsPresent] = useState(false)
 
   async function getStudent() {
-    let res = await axios.get("http://localhost:3000/students/" + id)
+    let res = await axios.get("https://student-mangement-sysyem.onrender.com/students" + id)
 
     setstd(res.data)
 

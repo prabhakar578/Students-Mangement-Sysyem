@@ -11,7 +11,7 @@ const View = () => {
 
   async function StudentData() {
     try {
-      let res = await axios.get(`http://localhost:3000/students/${id}`);
+      let res = await axios.get(`https://student-mangement-sysyem.onrender.com/students/${id}`);
       Setstd(res.data);
     } catch (error) {
       console.log("Error fetching student:", error);

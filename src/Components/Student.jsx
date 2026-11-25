@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Student = (props) => {
   function handleDelete(stdId) {
     async function deletestd() {
-      await axios.delete(`http://localhost:3000/students/${stdId}`);
+      await axios.delete(`https://student-mangement-sysyem.onrender.com/students/${stdId}`);
 
       props.SetToggle(!props.toggle);
     }

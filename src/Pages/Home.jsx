@@ -9,7 +9,7 @@ const Home = () => {
   const [toggle, SetToggle] = useState(false)
 
   async function getStudents() {
-    let res = await axios.get("http://localhost:3000/students")
+    let res = await axios.get("https://student-mangement-sysyem.onrender.com/students")
     setStudent(res.data)
   }
 

@@ -39,7 +39,7 @@ const Create = () => {
     }
 
     async function addStudent() {
-      await axios.post("http://localhost:3000/students", student)
+      await axios.post("https://student-mangement-sysyem.onrender.com/students", student)
 
       alert("Student added successfully!")
       navigate("/")
