@@ -17,23 +17,33 @@ const Edit = () => {
   let [marks, setMarks] = useState("")
   let [isPresent, setIsPresent] = useState(false)
 
+  // Get student details
   async function getStudent() {
-    let res = await axios.get("https://student-mangement-sysyem.onrender.com/students" + id)
+    try {
+      let res = await axios.get(
+        "https://student-mangement-sysyem.onrender.com/students/" + id
+      )
 
-    setstd(res.data)
+      setstd(res.data)
 
-    setName(res.data.name)
-    setAge(res.data.age)
-    setRollnumber(res.data.rollnumber)
-    setCourse(res.data.course)
-    setMarks(res.data.marks)
-    setIsPresent(res.data.ispresent)
+      setName(res.data.name || "")
+      setAge(res.data.age ?? "")
+      setRollnumber(res.data.rollnumber ?? "")
+      setCourse(res.data.course || "")
+      setMarks(res.data.marks ?? "")
+      setIsPresent(res.data.ispresent ?? false)
+
+    } catch (error) {
+      console.log(error)
+      alert("Unable to fetch student details")
+    }
   }
 
   useEffect(() => {
     getStudent()
   }, [id])
 
+  // Update student details
   async function handleSubmit(e) {
     e.preventDefault()
 
@@ -57,10 +67,19 @@ const Edit = () => {
       ispresent: isPresent
     }
 
-    await axios.put("http://localhost:3000/students/" + id, student)
+    try {
+      await axios.put(
+        "https://student-mangement-sysyem.onrender.com/students/" + id,
+        student
+      )
 
-    alert("Student updated successfully")
-    navigate("/")
+      alert("Student updated successfully")
+      navigate("/")
+
+    } catch (error) {
+      console.log(error)
+      alert("Unable to update student")
+    }
   }
 
   return (
@@ -111,8 +130,12 @@ const Edit = () => {
                       onChange={(e) => setCourse(e.target.value)}
                     >
                       <option value="">Select Course</option>
-                      <option value="Computer Science">Computer Science</option>
-                      <option value="Information Technology">Information Technology</option>
+                      <option value="Computer Science">
+                        Computer Science
+                      </option>
+                      <option value="Information Technology">
+                        Information Technology
+                      </option>
                     </select>
                   </div>
 
@@ -142,8 +165,10 @@ const Edit = () => {
                     <label className="form-label">Attendance</label>
                     <select
                       className="form-select"
-                      value={isPresent.toString()}
-                      onChange={(e) => setIsPresent(e.target.value === "true")}
+                      value={String(isPresent ?? false)}
+                      onChange={(e) =>
+                        setIsPresent(e.target.value === "true")
+                      }
                     >
                       <option value="true">Present</option>
                       <option value="false">Absent</option>
@@ -154,7 +179,10 @@ const Edit = () => {
 
                 <div className="text-center mt-3">
 
-                  <button type="submit" className="btn btn-success px-4 me-2">
+                  <button
+                    type="submit"
+                    className="btn btn-success px-4 me-2"
+                  >
                     Update Student
                   </button>
 
@@ -181,3 +209,5 @@ const Edit = () => {
 }
 
 export default Edit
+
+
