@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 
 const Edit = () => {
 
@@ -84,6 +84,13 @@ const Edit = () => {
 
   return (
     <div className="container mt-5">
+
+      {/* Back to Home Link */}
+      <div className="mb-3">
+        <Link to="/" className="btn btn-outline-primary">
+          ← Back to Home
+        </Link>
+      </div>
 
       <div className="row justify-content-center">
         <div className="col-md-8 col-lg-7">
@@ -209,5 +216,3 @@ const Edit = () => {
 }
 
 export default Edit
-
-
